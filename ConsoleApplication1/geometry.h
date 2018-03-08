@@ -37,6 +37,7 @@ public:
 	void set_initial(point initial);
 	void set_terminal(point terminal);
 	friend std::ostream& operator << (std::ostream & os, const segment & s);
+	friend bool length_sort(const segment s1, const segment s2);
 
 
 

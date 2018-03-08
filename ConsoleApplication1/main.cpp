@@ -58,6 +58,7 @@ int main()
 	std::cout << std::endl;
 
 	myfront.divide_edge(myfront.get_front()[1],10,1);
+	myfront.order_by_length();
 
 	for (auto i : myfront.get_front())
 		std::cout << i << ' ';

@@ -14,7 +14,9 @@ std::ostream& operator<<(std::ostream & os, const segment & s) {
 	return os;
 }
 
-
+bool length_sort(const segment s1, const segment s2) {
+	return (s1.get_length() < s2.get_length());
+}
 
 
 point::point() {

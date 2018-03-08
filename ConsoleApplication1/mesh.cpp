@@ -4,6 +4,7 @@
 #include <bitset>
 #include <sstream>
 #include <cmath>
+#include <algorithm> 
 
 std::ostream& operator << (std::ostream & os, const front & f) {
 
@@ -24,7 +25,7 @@ void front::push_edge(segment edge) {
 }
 
 void front::order_by_length() {
-
+	std::sort(edges.begin(), edges.end(), length_sort);
 }
 
 void front::divide_edge(segment &edge , int new_edges, int pos) {
