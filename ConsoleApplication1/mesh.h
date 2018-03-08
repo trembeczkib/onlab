@@ -14,10 +14,11 @@ private:
 
 public:
 	front(std::vector<segment> front_vector);
-	const std::vector<segment> & get_front();
+	std::vector<segment> get_front() const;
 	void push_edge(segment new_edge);
 	void order_by_length();
 	void divide_edge(segment &edge, int new_edges, int pos);
+	friend std::ostream& operator << (std::ostream & os, const front & f);
 
 };
 

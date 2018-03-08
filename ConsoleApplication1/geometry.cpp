@@ -4,13 +4,13 @@
 #include <sstream>
 #include <cmath>
 
-std::ostream& operator << (std::ostream & os, point & p) {
+std::ostream& operator << (std::ostream & os, const point & p) {
 	os << "x: " << p.get_x() << " | y: " << p.get_y() ;
 	return os;
 }
 
-std::ostream& operator<<(std::ostream & os, segment & s) {
-	os <<  "\n Initial point: " << s.p_initial << " | Terminal point: " << s.p_terminal;
+std::ostream& operator<<(std::ostream & os, const segment & s) {
+	os <<  "\n Initial point: " << s.get_initial() << " | Terminal point: " << s.get_terminal();
 	return os;
 }
 
@@ -35,12 +35,12 @@ void point::set_y(double value) {
 	this->y = value;
 }
 
-double point::get_x() {
+double point::get_x() const {
 	return this->x;
 }
 
 
-double point::get_y() {
+double point::get_y() const {
 	return this->y;
 }
 
@@ -73,19 +73,19 @@ void segment::set_terminal(point terminal) {
 	this->angle = tanh((p_terminal.get_y() - p_initial.get_y()) / (p_terminal.get_x() - p_initial.get_x()));
 }
 
-const double segment::get_length() {
+double segment::get_length() const {
 	return this->length;
 }
 
-const double segment::get_angle() {
+double segment::get_angle() const {
 	return this->angle;
 }
 
-const point segment::get_initial() {
+point segment::get_initial() const {
 	return this->p_initial;
 }
 
-const point segment::get_terminal() {
+point segment::get_terminal() const {
 	return this->p_terminal;
 }
 

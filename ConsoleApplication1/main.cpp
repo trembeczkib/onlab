@@ -13,7 +13,7 @@ int main()
 	p1.set_y(50);
 	point p2;
 	p2.set_x(50);
-	p2.set_y(100);
+	p2.set_y(150);
 	point p3;
 	p3.set_x(100);
 	p3.set_y(100);
@@ -45,16 +45,23 @@ int main()
 
 	front myfront = front(myvector);
 
-	std::cout << s1;
-	std::cout << s2;
-	std::cout << s3;
-	std::cout << s4;
+//	std::cout << s1;
+//	std::cout << s2;
+//	std::cout << s3;
+//	std::cout << s4;
 
-	/*
-	for (auto i = myfront.get_front().begin(); i != myfront.get_front().end(); i++) {
-		std::cout << *i << std::endl;
-	}
-	*/
+//	std::cout << myfront;
+
+	for (auto i : myfront.get_front())
+		std::cout << i << ' ';
+
+	std::cout << std::endl;
+
+	myfront.divide_edge(myfront.get_front()[1],10,1);
+
+	for (auto i : myfront.get_front())
+		std::cout << i << ' ';
+
 	std::getchar();
 	return 0;
 }
