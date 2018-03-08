@@ -19,7 +19,20 @@ public:
 	void order_by_length();
 	void divide_edge(segment &edge, int new_edges, int pos);
 	friend std::ostream& operator << (std::ostream & os, const front & f);
+	bool is_inside_front(const point &p);
 
+
+};
+
+
+class mesh
+{
+private:
+	front front;
+	std::vector<directional_triangle> triangles;
+
+public:
+	
 };
 
 #endif
