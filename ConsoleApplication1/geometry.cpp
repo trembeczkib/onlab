@@ -14,6 +14,8 @@ std::ostream& operator<<(std::ostream & os, const segment & s) {
 	return os;
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
 bool length_sort(const segment s1, const segment s2) {
 	return (s1.get_length() < s2.get_length());
 }
@@ -46,6 +48,7 @@ double point::get_y() const {
 	return this->y;
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 segment::segment(point p_initial, point p_terminal) {
@@ -91,3 +94,96 @@ point segment::get_terminal() const {
 	return this->p_terminal;
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+directional_triangle::directional_triangle(point p1, point p2, point p3) {
+	this->A = p1;
+	this->B = p2;
+	this->C = p3;
+	this->a = sqrt((C.get_x() - B.get_x())*(C.get_x() - B.get_x()) + (C.get_y() - B.get_y())*(C.get_y() - B.get_y()));
+	this->b = sqrt((A.get_x() - C.get_x())*(A.get_x() - C.get_x()) + (A.get_y() - C.get_y())*(A.get_y() - C.get_y()));
+	this->c = sqrt((B.get_x() - A.get_x())*(B.get_x() - A.get_x()) + (B.get_y() - A.get_y())*(B.get_y() - A.get_y()));
+	this->gamma = acos((c*c-a*a-b*b)/(2*a*b));
+	this->beta = acos((b*b - a*a - c*c) / (2 * a*c));
+	this->alfa = acos((a*a - c*c - b*b) / (2 * c*b));
+}
+
+directional_triangle::directional_triangle() {
+	point zero;
+	this->A = zero;
+	this->B = zero;
+	this->C = zero;
+	this->a = sqrt((C.get_x() - B.get_x())*(C.get_x() - B.get_x()) + (C.get_y() - B.get_y())*(C.get_y() - B.get_y()));
+	this->b = sqrt((A.get_x() - C.get_x())*(A.get_x() - C.get_x()) + (A.get_y() - C.get_y())*(A.get_y() - C.get_y()));
+	this->c = sqrt((B.get_x() - A.get_x())*(B.get_x() - A.get_x()) + (B.get_y() - A.get_y())*(B.get_y() - A.get_y()));
+	this->gamma = acos((c*c - a*a - b*b) / (2 * a*b));
+	this->beta = acos((b*b - a*a - c*c) / (2 * a*c));
+	this->alfa = acos((a*a - c*c - b*b) / (2 * c*b));
+}
+
+void directional_triangle::set_A(point p) {
+	this->A = p;
+	this->a = sqrt((C.get_x() - B.get_x())*(C.get_x() - B.get_x()) + (C.get_y() - B.get_y())*(C.get_y() - B.get_y()));
+	this->b = sqrt((A.get_x() - C.get_x())*(A.get_x() - C.get_x()) + (A.get_y() - C.get_y())*(A.get_y() - C.get_y()));
+	this->c = sqrt((B.get_x() - A.get_x())*(B.get_x() - A.get_x()) + (B.get_y() - A.get_y())*(B.get_y() - A.get_y()));
+	this->gamma = acos((c*c - a*a - b*b) / (2 * a*b));
+	this->beta = acos((b*b - a*a - c*c) / (2 * a*c));
+	this->alfa = acos((a*a - c*c - b*b) / (2 * c*b));
+}
+
+void directional_triangle::set_B(point p) {
+	this->B = p;
+	this->a = sqrt((C.get_x() - B.get_x())*(C.get_x() - B.get_x()) + (C.get_y() - B.get_y())*(C.get_y() - B.get_y()));
+	this->b = sqrt((A.get_x() - C.get_x())*(A.get_x() - C.get_x()) + (A.get_y() - C.get_y())*(A.get_y() - C.get_y()));
+	this->c = sqrt((B.get_x() - A.get_x())*(B.get_x() - A.get_x()) + (B.get_y() - A.get_y())*(B.get_y() - A.get_y()));
+	this->gamma = acos((c*c - a*a - b*b) / (2 * a*b));
+	this->beta = acos((b*b - a*a - c*c) / (2 * a*c));
+	this->alfa = acos((a*a - c*c - b*b) / (2 * c*b));
+}
+
+void directional_triangle::set_C(point p) {
+	this->C = p;
+	this->a = sqrt((C.get_x() - B.get_x())*(C.get_x() - B.get_x()) + (C.get_y() - B.get_y())*(C.get_y() - B.get_y()));
+	this->b = sqrt((A.get_x() - C.get_x())*(A.get_x() - C.get_x()) + (A.get_y() - C.get_y())*(A.get_y() - C.get_y()));
+	this->c = sqrt((B.get_x() - A.get_x())*(B.get_x() - A.get_x()) + (B.get_y() - A.get_y())*(B.get_y() - A.get_y()));
+	this->gamma = acos((c*c - a*a - b*b) / (2 * a*b));
+	this->beta = acos((b*b - a*a - c*c) / (2 * a*c));
+	this->alfa = acos((a*a - c*c - b*b) / (2 * c*b));
+}
+
+point directional_triangle::point get_A() const {
+	return this->A;
+}
+
+point directional_triangle::point get_B() const {
+	return this->B;
+}
+
+point directional_triangle::point get_C() const {
+	return this->C;
+}
+
+double directional_triangle::point get_a() const {
+	return this->a;
+}
+
+double directional_triangle::point get_b() const {
+	return this->b;
+}
+
+double directional_triangle::point get_c() const {
+	return this->c;
+}
+
+double directional_triangle::point get_alfa() const {
+	return this->alfa;
+}
+
+double directional_triangle::point get_beta() const {
+	return this->beta;
+}
+
+double directional_triangle::point get_gamma() const {
+	return this->gamma;
+}

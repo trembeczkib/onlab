@@ -43,4 +43,34 @@ public:
 
 };
 
+class directional_triangle {
+private:
+	point A;
+	point B;
+	point C;
+	double a;
+	double b;
+	double c;
+	double alfa;
+	double beta;
+	double gamma;
+	
+public:
+	directional_triangle(point p1, point p2, point p3);
+	directional_triangle();
+	void set_A(point p);
+	void set_B(point p);
+	void set_C(point p);
+	point get_A() const;
+	point get_B() const;
+	point get_C() const;
+	double get_a() const;
+	double get_b() const;
+	double get_c() const;
+	double get_alfa() const;
+	double get_beta() const;
+	double get_gamma() const;
+	friend std::ostream& operator << (std::ostream & os, const directional_triangle & t);
+};
+
 #endif
