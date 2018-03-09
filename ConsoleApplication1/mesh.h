@@ -29,10 +29,23 @@ class mesh
 {
 private:
 	front front;
-	std::vector<directional_triangle> triangles;
-
-public:
+	std::list<directional_triangle> triangles;
+	std::list<point> points;
 	
+public:
+	mesh();
+	mesh(front f);
+	front get_front() const;
+	std::list<directional_triangle> get_triangles() const;
+	std::list<point> get_points() const;
+	
+};
+
+class mesh
+{
+private:
+	front front;
+	vector 
 };
 
 #endif

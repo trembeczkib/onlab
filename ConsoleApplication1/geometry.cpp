@@ -14,6 +14,13 @@ std::ostream& operator<<(std::ostream & os, const segment & s) {
 	return os;
 }
 
+std::ostream& operator << (std::ostream & os, const directional_triangle & t) {
+	os << "\n Vertices: A: " << t.get_A() << " B: " << t.get_B() << " C: " << t.get_C() << std::endl;
+	os << " Sides: a: " << t.get_a() << " b: " << t.get_b() << " c: " << t.get_c() << std::endl;
+	os << " Angles: alfa: " << t.get_alfa() << " beta: " << t.get_beta() << " gamma: " << t.get_gamma() << std::endl;
+	return os;
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 bool length_sort(const segment s1, const segment s2) {
@@ -152,38 +159,38 @@ void directional_triangle::set_C(point p) {
 	this->alfa = acos((a*a - c*c - b*b) / (2 * c*b));
 }
 
-point directional_triangle::point get_A() const {
+point directional_triangle::get_A() const {
 	return this->A;
 }
 
-point directional_triangle::point get_B() const {
+point directional_triangle::get_B() const {
 	return this->B;
 }
 
-point directional_triangle::point get_C() const {
+point directional_triangle::get_C() const {
 	return this->C;
 }
 
-double directional_triangle::point get_a() const {
+double directional_triangle::get_a() const {
 	return this->a;
 }
 
-double directional_triangle::point get_b() const {
+double directional_triangle::get_b() const {
 	return this->b;
 }
 
-double directional_triangle::point get_c() const {
+double directional_triangle::get_c() const {
 	return this->c;
 }
 
-double directional_triangle::point get_alfa() const {
+double directional_triangle::get_alfa() const {
 	return this->alfa;
 }
 
-double directional_triangle::point get_beta() const {
+double directional_triangle::get_beta() const {
 	return this->beta;
 }
 
-double directional_triangle::point get_gamma() const {
+double directional_triangle::get_gamma() const {
 	return this->gamma;
 }

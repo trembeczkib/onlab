@@ -63,6 +63,9 @@ int main()
 	for (auto i : myfront.get_front())
 		std::cout << i << ' ';
 
+	std::cout << std::endl;
+	directional_triangle t = * new directional_triangle(p1, p2, p3);
+	std::cout << t;
 	std::getchar();
 	return 0;
 }
