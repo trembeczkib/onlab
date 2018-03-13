@@ -111,9 +111,9 @@ directional_triangle::directional_triangle(point p1, point p2, point p3) {
 	this->a = sqrt((C.get_x() - B.get_x())*(C.get_x() - B.get_x()) + (C.get_y() - B.get_y())*(C.get_y() - B.get_y()));
 	this->b = sqrt((A.get_x() - C.get_x())*(A.get_x() - C.get_x()) + (A.get_y() - C.get_y())*(A.get_y() - C.get_y()));
 	this->c = sqrt((B.get_x() - A.get_x())*(B.get_x() - A.get_x()) + (B.get_y() - A.get_y())*(B.get_y() - A.get_y()));
-	this->gamma = acos((c*c-a*a-b*b)/(2*a*b));
-	this->beta = acos((b*b - a*a - c*c) / (2 * a*c));
-	this->alfa = acos((a*a - c*c - b*b) / (2 * c*b));
+	this->gamma = acos((c*c-a*a-b*b) / (-2*a*b));
+	this->beta = acos((b*b - a*a - c*c) / (-2 * a*c));
+	this->alfa = acos((a*a - c*c - b*b) / (-2 * c*b));
 }
 
 directional_triangle::directional_triangle() {
@@ -124,9 +124,9 @@ directional_triangle::directional_triangle() {
 	this->a = sqrt((C.get_x() - B.get_x())*(C.get_x() - B.get_x()) + (C.get_y() - B.get_y())*(C.get_y() - B.get_y()));
 	this->b = sqrt((A.get_x() - C.get_x())*(A.get_x() - C.get_x()) + (A.get_y() - C.get_y())*(A.get_y() - C.get_y()));
 	this->c = sqrt((B.get_x() - A.get_x())*(B.get_x() - A.get_x()) + (B.get_y() - A.get_y())*(B.get_y() - A.get_y()));
-	this->gamma = acos((c*c - a*a - b*b) / (2 * a*b));
-	this->beta = acos((b*b - a*a - c*c) / (2 * a*c));
-	this->alfa = acos((a*a - c*c - b*b) / (2 * c*b));
+	this->gamma = acos((c*c - a*a - b*b) / (-2 * a*b));
+	this->beta = acos((b*b - a*a - c*c) / (-2 * a*c));
+	this->alfa = acos((a*a - c*c - b*b) / (-2 * c*b));
 }
 
 void directional_triangle::set_A(point p) {
@@ -134,9 +134,9 @@ void directional_triangle::set_A(point p) {
 	this->a = sqrt((C.get_x() - B.get_x())*(C.get_x() - B.get_x()) + (C.get_y() - B.get_y())*(C.get_y() - B.get_y()));
 	this->b = sqrt((A.get_x() - C.get_x())*(A.get_x() - C.get_x()) + (A.get_y() - C.get_y())*(A.get_y() - C.get_y()));
 	this->c = sqrt((B.get_x() - A.get_x())*(B.get_x() - A.get_x()) + (B.get_y() - A.get_y())*(B.get_y() - A.get_y()));
-	this->gamma = acos((c*c - a*a - b*b) / (2 * a*b));
-	this->beta = acos((b*b - a*a - c*c) / (2 * a*c));
-	this->alfa = acos((a*a - c*c - b*b) / (2 * c*b));
+	this->gamma = acos((c*c - a*a - b*b) / (-2 * a*b));
+	this->beta = acos((b*b - a*a - c*c) / (-2 * a*c));
+	this->alfa = acos((a*a - c*c - b*b) / (-2 * c*b));
 }
 
 void directional_triangle::set_B(point p) {
@@ -144,9 +144,9 @@ void directional_triangle::set_B(point p) {
 	this->a = sqrt((C.get_x() - B.get_x())*(C.get_x() - B.get_x()) + (C.get_y() - B.get_y())*(C.get_y() - B.get_y()));
 	this->b = sqrt((A.get_x() - C.get_x())*(A.get_x() - C.get_x()) + (A.get_y() - C.get_y())*(A.get_y() - C.get_y()));
 	this->c = sqrt((B.get_x() - A.get_x())*(B.get_x() - A.get_x()) + (B.get_y() - A.get_y())*(B.get_y() - A.get_y()));
-	this->gamma = acos((c*c - a*a - b*b) / (2 * a*b));
-	this->beta = acos((b*b - a*a - c*c) / (2 * a*c));
-	this->alfa = acos((a*a - c*c - b*b) / (2 * c*b));
+	this->gamma = acos((c*c - a*a - b*b) / (-2 * a*b));
+	this->beta = acos((b*b - a*a - c*c) / (-2 * a*c));
+	this->alfa = acos((a*a - c*c - b*b) / (-2 * c*b));
 }
 
 void directional_triangle::set_C(point p) {
@@ -154,9 +154,9 @@ void directional_triangle::set_C(point p) {
 	this->a = sqrt((C.get_x() - B.get_x())*(C.get_x() - B.get_x()) + (C.get_y() - B.get_y())*(C.get_y() - B.get_y()));
 	this->b = sqrt((A.get_x() - C.get_x())*(A.get_x() - C.get_x()) + (A.get_y() - C.get_y())*(A.get_y() - C.get_y()));
 	this->c = sqrt((B.get_x() - A.get_x())*(B.get_x() - A.get_x()) + (B.get_y() - A.get_y())*(B.get_y() - A.get_y()));
-	this->gamma = acos((c*c - a*a - b*b) / (2 * a*b));
-	this->beta = acos((b*b - a*a - c*c) / (2 * a*c));
-	this->alfa = acos((a*a - c*c - b*b) / (2 * c*b));
+	this->gamma = acos((c*c - a*a - b*b) / (-2 * a*b));
+	this->beta = acos((b*b - a*a - c*c) / (-2 * a*c));
+	this->alfa = acos((a*a - c*c - b*b) / (-2 * c*b));
 }
 
 point directional_triangle::get_A() const {

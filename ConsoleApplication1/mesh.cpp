@@ -1,3 +1,4 @@
+#define _USE_MATH_DEFINES
 #include "geometry.h"
 #include "mesh.h"
 #include <iostream>
@@ -47,4 +48,17 @@ void front::divide_edge(segment &edge , int new_edges, int pos) {
 		this->push_edge(new_edge);
 	}
 	this->push_edge(last_edge);
+}
+
+point front::find_ideal_point(const segment &s) {
+	point new_point;
+	new_point.set_x(cos(M_PI / 3) * (s.get_terminal().get_x() - s.get_initial().get_x()) - sin(M_PI / 3) * (s.get_terminal().get_y() - s.get_initial().get_y()) + s.get_initial().get_x());
+	new_point.set_y(sin(M_PI / 3) * (s.get_terminal().get_x() - s.get_initial().get_x()) + cos(M_PI / 3) * (s.get_terminal().get_y() - s.get_initial().get_y()) + s.get_initial().get_y());
+	return new_point;
+}
+
+bool mesh::search_for_nearby_points(const point& p, double radius, point& nearest_point ) {
+
+
+
 }
